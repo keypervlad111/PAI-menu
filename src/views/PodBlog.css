@@ -1,0 +1,36 @@
+.container_regex {
+    margin: 0 200px;
+    justify-content: center;
+    display: grid;
+}
+
+.adress_container {
+    display: flex;
+}
+
+.input_regex {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+.error {
+    border: 2px solid red;
+    color: red;
+}
+
+.error_text {
+    color: red;
+}
+
+
+.labels {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.btn_regex {
+    font-size: 20px;
+    border-radius: 10px;
+}

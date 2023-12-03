@@ -1,0 +1,18 @@
+.main_container {
+    padding: 0 40px;
+    border-top: 1px solid black;
+}
+
+.colums_container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(var(--footer-lenght), 1fr);
+    max-width: 1440px;
+}
+
+@media screen and (max-width: 1460px) {
+    .colums_container {
+        max-width: 1024px;
+        background-color: aqua;
+    }
+}
