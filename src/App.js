@@ -17,14 +17,12 @@ function App() {
       <main className="main">
         <Routes>
           <Route path="/" element={<h1>Pusta strona</h1>} />
-          <Route path="/o_nas" element={<Onas />}>
-            <Route path="/o_nas/pod_o_nas" element={<PodOnas />} />
-          </Route>
+          <Route path="/o_nas" element={<Onas />} />
+          <Route path="/o_nas/pod_o_nas" element={<PodOnas />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/pod_blog" element={<PodBlog />} />
-          <Route path="/klasa" element={<Klasa />}>
-            <Route path="pod_klasa" element={<PodKlasa />} />
-          </Route>
+          <Route path="/klasa" element={<Klasa />} />
+          <Route path="pod_klasa" element={<PodKlasa />} />
         </Routes>
       </main>
       <Footer />
