@@ -31,29 +31,68 @@ function PodBlog() {
     function checkRegex() {
         if (!peselValidator.test(pesel)) {
             inputPesel.classList.add("error")
-            console.log(errMassage);
+            setErrMassage(prevState => ({
+                ...prevState,
+                pesel: 1
+            }));
         } else {
             inputPesel.classList.remove("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                pesel: null
+            }));
         }
         if (!FullNameValidator.test(fullName)) {
             inputFullName.classList.add("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                full_name: 1
+            }));
         } else {
             inputFullName.classList.remove("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                full_name: null
+            }));
         }
         if (!StreetValidator.test(street)) {
             inputStreet.classList.add("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                street: 1
+            }));
         } else {
             inputStreet.classList.remove("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                street: null
+            }));
         }
         if (!NOValidator.test(no)) {
             inputNO.classList.add("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                no: 1
+            }));
         } else {
             inputNO.classList.remove("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                no: null
+            }));
         }
         if (!CityValidator.test(city)) {
             inputCity.classList.add("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                city: 1
+            }));
         } else {
             inputCity.classList.remove("error")
+            setErrMassage(prevState => ({
+                ...prevState,
+                city: null
+            }));
         }
     }
 
@@ -67,17 +106,21 @@ function PodBlog() {
                 </div>
                 <div className="labels" id="fullName_div">Full Name:
                     <input className="input_regex" type="text" onChange={event => setFullName(event.target.value)} id="fullName" />
+                    {errMassage.full_name && <div className="error_text">Imie lub nazwisko jest nie poprawne</div>}
                 </div>
                 <div className="adress_container">
                     <div className="labels" id="street_div">Street:
                         <input className="input_regex" type="text" onChange={event => setStreet(event.target.value)} id="street" />
+                        {errMassage.street && <div className="error_text">Ulica jest nie poprawna</div>}
                     </div>
                     <div className="labels" id="NO_div">NO.
                         <input className="input_regex" type="text" onChange={event => setNo(event.target.value)} id="NO" />
+                        {errMassage.no && <div className="error_text">Numer jest nie poprawny</div>}
                     </div>
                 </div>
                 <div className="labels" id="City_div">City:
                     <input className="input_regex" type="text" onChange={event => setCity(event.target.value)} id="City" />
+                    {errMassage.city && <div className="error_text">Miasto jest nie poprawne</div>}
                 </div>
                 <button className="btn_regex" onClick={checkRegex}>Submit</button>
             </div>
