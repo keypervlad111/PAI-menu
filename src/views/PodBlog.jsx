@@ -20,24 +20,19 @@ function PodBlog() {
     const inputNO = document.getElementById("NO")
     const inputCity = document.getElementById("City")
 
-
-    // const div = document.createElement("div");
-    // div.classList.add("error_text");
-    // div.innerHTML = "Masz nie poprawny pesel";
+    const [errMassage, setErrMassage] = useState({
+        pesel: null,
+        full_name: null,
+        street: null,
+        no: null,
+        city: null
+    })
 
     function checkRegex() {
         if (!peselValidator.test(pesel)) {
-            // const pesel_div = document.getElementById("pesel_div");
             inputPesel.classList.add("error")
-            // pesel_div.childNodes.forEach(el => {
-            //     if (el.className == "error_text"){
-            //     } else {
-            //         pesel_div.appendChild(div);
-            //     }
-            // })
+            console.log(errMassage);
         } else {
-            // const pesel_div = document.getElementById("pesel_div");
-            // pesel_div.removeChild("error_text")
             inputPesel.classList.remove("error")
         }
         if (!FullNameValidator.test(fullName)) {
@@ -61,12 +56,14 @@ function PodBlog() {
             inputCity.classList.remove("error")
         }
     }
+
     return (
         <div>
             <h1>Rozbudowane zadanie z REGEX</h1>
             <div className="container_regex">
                 <div className="labels" id="pesel_div">Pesel:
                     <input className="input_regex" type="number" onChange={event => setPesel(event.target.value)} id="pesel" />
+                    {errMassage.pesel && <div className="error_text">Pesel jest nie poprawny</div>}
                 </div>
                 <div className="labels" id="fullName_div">Full Name:
                     <input className="input_regex" type="text" onChange={event => setFullName(event.target.value)} id="fullName" />
