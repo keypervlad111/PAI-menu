@@ -20,18 +20,24 @@ function PodBlog() {
     const inputNO = document.getElementById("NO")
     const inputCity = document.getElementById("City")
 
+
+    // const div = document.createElement("div");
+    // div.classList.add("error_text");
+    // div.innerHTML = "Masz nie poprawny pesel";
+
     function checkRegex() {
         if (!peselValidator.test(pesel)) {
+            // const pesel_div = document.getElementById("pesel_div");
             inputPesel.classList.add("error")
-            const div = document.createElement("div");
-            div.classList.add("error_text");
-
-            const pesel_div = document.getElementById("pesel_div");
-            // pesel_div.removeChild(div);
-            // console.log(pesel_div);
-            div.innerHTML = "Masz nie poprawny pesel";
-            pesel_div.appendChild(div);
+            // pesel_div.childNodes.forEach(el => {
+            //     if (el.className == "error_text"){
+            //     } else {
+            //         pesel_div.appendChild(div);
+            //     }
+            // })
         } else {
+            // const pesel_div = document.getElementById("pesel_div");
+            // pesel_div.removeChild("error_text")
             inputPesel.classList.remove("error")
         }
         if (!FullNameValidator.test(fullName)) {
